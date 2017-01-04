@@ -1,0 +1,17 @@
+<% include ./partials/header %>
+
+<div class="ui main text container">
+    <% blogs.forEach(function(blog){ %>
+        <div class="ui padded clearing segment">
+            <img class="ui small left floated middle aligned image" src="<%= blog.image %>">
+            <a href="/blogs/<%= blog._id %>"><h2 class="ui header"><%= blog.title %></h2></a>
+            <div class="meta"><span><%= moment(blog.created).format('LL') %></span></div>
+            <div class="description"><p><%- blog.body.substring(0, 100) %>...</p></div>
+            <div class="ui hidden divider"></div>
+            <div class="extra"><a class="ui tiny right floated basic blue button" href="/blogs/<%= blog._id %>">Read More</a></div>
+        </div>
+    <% }) %>
+</div>
+
+
+<% include ./partials/footer %>
